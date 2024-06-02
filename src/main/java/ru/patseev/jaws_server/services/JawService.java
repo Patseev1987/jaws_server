@@ -1,5 +1,6 @@
 package ru.patseev.jaws_server.services;
 
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.patseev.jaws_server.domain.Jaw;
@@ -15,6 +16,7 @@ public class JawService {
     private final JawsRepository jawsRepository;
 
     // save jaw to database
+    @Transactional
     public Jaw save(Jaw jaw) {
         return jawsRepository.save(jaw);
     }
@@ -30,6 +32,7 @@ public class JawService {
     }
 
     // delete jaw by id
+    @Transactional
     public void delete(Long id) {
         jawsRepository.deleteById(id);
     }

@@ -15,6 +15,7 @@ public class PhotoJawsService {
     private final PhotoJawsRepository photoJawsRepository;
 
     // save photo to database
+    @Transactional
     public void createPhotoJaws(PhotoJaws photoJaws) {
         photoJawsRepository.save(photoJaws);
     }

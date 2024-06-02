@@ -24,6 +24,7 @@ public class FileServiceImpl implements FileService {
     private final UploadServerProperty uploadServerProperty;
 
     // save the photo in database
+    @Transactional
     @Override
     public void save(MultipartFile file, Long ownerId) {
 
@@ -47,6 +48,7 @@ public class FileServiceImpl implements FileService {
         }
     }
     @Transactional
+    @Override
     public void deleteFile(String name){
         try {
             String path = getPathToResources() + name;
